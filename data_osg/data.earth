@@ -1,0 +1,35 @@
+<map>
+  <options>
+    <terrain
+      driver = "rex"
+      skirt_ratio = "0.05"
+    />
+
+    <cache
+      driver = "leveldb"
+      path = "../../osgearth_cache/leveldb"
+    />
+  </options>
+
+  <image name="Google" driver="xyz" enabled="true" visible="true">
+    <url>http://mt.google.com/vt/lyrs=s&amp;x={x}&amp;y={y}&amp;z={z}</url>
+    <profile>spherical-mercator</profile>
+    <cache_policy usage="read_write"/>
+  </image>
+
+  <image name="OSM" driver="xyz" enabled="false" visible="false">
+    <url>http://[abc].tile.openstreetmap.org/{z}/{x}/{y}.png</url>
+    <profile>spherical-mercator</profile>
+    <cache_policy usage="read_write"/>
+  </image>
+
+  <image name="Яндекс" driver="xyz" enabled="false" visible="false">
+    <url>http://core-sat.maps.yandex.net/tiles?l=sat&amp;x={x}&amp;y={y}&amp;z={z}&amp;lang=ru_RU</url>
+    <profile srs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" vdatum="geodetic"/>
+    <cache_policy usage="read_write"/>
+  </image>
+
+  <elevation name="Nikkitta" driver="tms">
+    <url>http://nikkitta.ru/elev/tms.xml</url>
+  </elevation>
+</map>
